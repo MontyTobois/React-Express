@@ -9,12 +9,14 @@ app.get('/api/customers', (req, res) => {
     {id: 3, firstName: 'London', lastName: 'Parks'},
     {id: 4, firstName: 'Andre', lastName: 'Tobois'},
     {id: 5, firstName: 'Nola', lastName: 'Davis'},
-    {id: 6, firstName: 'Ash', lastName: 'Kecthum'}
+    {id: 6, firstName: 'Ash', lastName: 'Ketchum'}
   ];
 
   res.json(customers)
 });
 
-const port = 5000;
+const port = process.env.PORT || 8080;
+
+app.use(express.static(__dirname));
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
